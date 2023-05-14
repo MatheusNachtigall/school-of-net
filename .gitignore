@@ -1,0 +1,22 @@
+
+# dependencies
+iniciando-com-react/node_modules
+iniciando-com-react/.pnp
+iniciando-com-react/.pnp.js
+
+# testing
+iniciando-com-react/coverage
+
+# production
+iniciando-com-react/build
+
+# misc
+iniciando-com-react/.DS_Store
+iniciando-com-react/.env.local
+iniciando-com-react/.env.development.local
+iniciando-com-react/.env.test.local
+iniciando-com-react/.env.production.local
+
+iniciando-com-react/npm-debug.log*
+iniciando-com-react/yarn-debug.log*
+iniciando-com-react/yarn-error.log*

@@ -1,1 +1,1 @@
-Projeto com conceitos basicos de React
+Repositorio com cursos da school of net
