@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getWeather } from "../API";
+import { Button } from "@mui/material";
 
 export default class WeatherForm extends Component {
   constructor(props) {
@@ -42,6 +43,9 @@ export default class WeatherForm extends Component {
           <button className="btn btn-success" onClick={this.onClickButton}>
             Enviar
           </button>
+          <Button variant="contained" onClick={this.onClickButton}>
+            Enviar
+          </Button>
         </div>
       </>
     );

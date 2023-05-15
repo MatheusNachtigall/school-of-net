@@ -6,13 +6,23 @@ import reportWebVitals from "./reportWebVitals";
 import TodoListApp from "./container/TodoListApp";
 import "bootstrap/dist/css/bootstrap.css";
 import WeatherApp from "./container/WeatherApp";
+import { ThemeProvider, createTheme } from "@mui/material";
+import red from "@mui/material/colors/red";
+
+const theme = createTheme({
+  palette: {
+    primary: red,
+  },
+});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    {/* <TodoListApp /> */}
-    <WeatherApp />
-  </React.StrictMode>
+  <ThemeProvider theme={theme}>
+    <React.StrictMode>
+      {/* <TodoListApp /> */}
+      <WeatherApp />
+    </React.StrictMode>
+  </ThemeProvider>
 );
 
 reportWebVitals();
