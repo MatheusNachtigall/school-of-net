@@ -1,0 +1,14 @@
+#versao do compose
+version: "3"
+
+services:
+  react-typescript-boilerplate:
+    build:
+      context: ./
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    container_name: react-typescript-boilerplate
+    entrypoint: yarn start
+    ports:
+      - 7000:3000
