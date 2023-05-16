@@ -1,8 +1,16 @@
+import { useNavigate } from "react-router-dom";
+
 export const SecondPage = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/");
+  };
+
   return (
     <div>
       <p>Navigatable Second page</p>
-      <a href="/">Return to HomePage</a>
+      <button onClick={handleClick}>Return to HomePage (via button)</button>
     </div>
   );
 };
