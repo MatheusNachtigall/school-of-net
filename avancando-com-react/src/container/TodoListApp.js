@@ -8,6 +8,7 @@ import {
   getTodoPlaceholderFetch,
   getTodoPlaceholderAxios,
 } from "../API";
+import { TodoFormFunction } from "../components/TodoFormFunction";
 
 export default class TodoListApp extends Component {
   constructor(props) {
@@ -18,10 +19,10 @@ export default class TodoListApp extends Component {
   }
 
   async componentDidMount() {
-    let response = await getTodoPlaceholderAsync();
+    // let response = await getTodoPlaceholderAsync();
     // let response = await getTodoPlaceholderAxios();
     // let response = await getTodoPlaceholderFetch();
-    this.setState({ items: response });
+    // this.setState({ items: response });
   }
 
   pushToItems = (todo) => {
@@ -29,6 +30,7 @@ export default class TodoListApp extends Component {
     this.setState({
       items: [...items, todo],
     });
+    console.log("pushToItems items: ", items);
   };
 
   removeFromItems = (index) => {
@@ -46,7 +48,7 @@ export default class TodoListApp extends Component {
           <WelcomeMessage />
         </div>
         <div className="col-xs-12 col-md-12">
-          <TodoForm pushToItems={this.pushToItems}></TodoForm>
+          <TodoFormFunction pushToItems={this.pushToItems}></TodoFormFunction>
         </div>
         <hr />
         <div className="col-xs-12 col-md-12">

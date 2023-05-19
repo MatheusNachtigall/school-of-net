@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 export default class TodoListItem extends Component {
   clickRemoveButton = () => {
-    console.log("this.props.index: ", this.props.index);
     this.props.removeFromItems(this.props.index);
   };
 
@@ -11,7 +10,7 @@ export default class TodoListItem extends Component {
 
     return (
       <li key={index} className="list-group-item">
-        {item.title}
+        {item}
         <button
           className="btn btn-danger"
           type="button"
