@@ -1,0 +1,35 @@
+#versao do compose
+version: "3.5"
+
+services:
+  postgres:
+    container_name: postgres-db
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_USER=postgres
+      - PGUSER=postgres
+      - POSTGRES_DB=products
+    volumes:
+      #tudo gravado na var/lib/mysql fica saldo no volume externo
+      - ./postgres_volume:/data/postgres
+    ports:
+      - 6543:5432
+
+  # node:
+  #   build:
+  #     context: ./node
+  #   volumes:
+  #     - ./node:/usr/src/app
+  #     - /usr/src/app/node_modules
+  #   container_name: desafio-node
+  #   entrypoint: dockerize -wait tcp://db:3306 -timeout 20s node index.js
+
+  # nginx:
+  #   build:
+  #     context: ./nginx
+  #   container_name: desafio-nginx
+  #   networks:
+  #     - desafio2
+  #   ports:
+  #     - 8080:80
