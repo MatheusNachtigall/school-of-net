@@ -1,20 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es6",
     "module": "commonjs",
-    "experimentalDecorators": true,
+    "declaration": true,
+    "removeComments": true,
     "emitDecoratorMetadata": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "allowJs": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
     "outDir": "./dist",
-    "esModuleInterop": true,
-    "strict": true,
-    "strictPropertyInitialization": false
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "dist"],
-  "ts-node": {
-    "files": true
+    "baseUrl": "./",
+    "incremental": true
   }
 }
