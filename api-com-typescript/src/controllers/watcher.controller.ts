@@ -1,21 +1,24 @@
 import { Router } from "express";
-import { WatcherServicePostgres } from "../services";
+import {
+  CreateCategoryService,
+  DeleteCategoryService,
+  ReadCategoryService,
+  UpdateCategoryService,
+} from "../services";
 
 export default class WatcherController {
   public router = Router();
   public path = "/watchers";
-  private watcherService: WatcherServicePostgres;
 
   constructor() {
-    this.watcherService = new WatcherServicePostgres();
     this.setupRoutes();
   }
 
   public setupRoutes() {
-    this.router.get(`${this.path}/:id`, this.watcherService.findById);
-    this.router.get(`${this.path}`, this.watcherService.findAll);
-    this.router.post(`${this.path}`, this.watcherService.create);
-    this.router.put(`${this.path}/:id`, this.watcherService.update);
-    this.router.delete(`${this.path}/:id`, this.watcherService.delete);
+    this.router.get(`${this.path}/:id`, new ReadCategoryService().findAll);
+    this.router.get(`${this.path}`, new ReadCategoryService().findById);
+    this.router.post(`${this.path}`, new CreateCategoryService().handle);
+    this.router.put(`${this.path}/:id`, new UpdateCategoryService().handle);
+    this.router.delete(`${this.path}/:id`, new DeleteCategoryService().handle);
   }
 }

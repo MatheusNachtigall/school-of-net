@@ -1,21 +1,24 @@
 import { Router } from "express";
-import { CategoryServicePostgres } from "../services";
+import {
+  CreateCategoryService,
+  DeleteCategoryService,
+  ReadCategoryService,
+  UpdateCategoryService,
+} from "../services";
 
 export default class CategoryController {
   public router = Router();
   public path = "/categories";
-  private categoryService: CategoryServicePostgres;
 
   constructor() {
-    this.categoryService = new CategoryServicePostgres();
     this.setupRoutes();
   }
 
   public setupRoutes() {
-    this.router.get(`${this.path}/:id`, this.categoryService.findById);
-    this.router.get(`${this.path}`, this.categoryService.findAll);
-    this.router.post(`${this.path}`, this.categoryService.create);
-    this.router.put(`${this.path}/:id`, this.categoryService.update);
-    this.router.delete(`${this.path}/:id`, this.categoryService.delete);
+    this.router.get(`${this.path}/:id`, new ReadCategoryService().findAll);
+    this.router.get(`${this.path}`, new ReadCategoryService().findById);
+    this.router.post(`${this.path}`, new CreateCategoryService().handle);
+    this.router.put(`${this.path}/:id`, new UpdateCategoryService().handle);
+    this.router.delete(`${this.path}/:id`, new DeleteCategoryService().handle);
   }
 }
